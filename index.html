@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recruiter Workbench v1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Recruiter Workbench v1</h1>
+      <p class="subhead">Paste notes once. Get send-ready outputs.</p>
+
+      <section class="panel">
+        <h2>Jobs</h2>
+        <p class="hint">Add jobs, click one to open it, then store job description + notes.</p>
+        <div class="grid">
+          <div>
+            <label for="jobCompanyInput">Company</label>
+            <input id="jobCompanyInput" type="text" placeholder="Acme AI" />
+          </div>
+          <div>
+            <label for="jobTitleInput">Job Title</label>
+            <input id="jobTitleInput" type="text" placeholder="Senior Backend Engineer" />
+          </div>
+        </div>
+        <div class="actions">
+          <button id="addJobBtn" class="secondary">Add Job</button>
+          <span id="jobStatus" aria-live="polite"></span>
+        </div>
+
+        <div class="jobs-layout">
+          <aside>
+            <h3>Your Jobs</h3>
+            <ul id="jobsList" class="jobs-list"></ul>
+          </aside>
+
+          <div>
+            <h3 id="jobEditorTitle">Select a job</h3>
+            <label for="jobDescription">Job Description</label>
+            <textarea id="jobDescription" rows="7" placeholder="Paste full job description..."></textarea>
+
+            <label for="jobNotes">Job Notes</label>
+            <textarea id="jobNotes" rows="5" placeholder="Add your notes on must-haves, risks, client feedback..."></textarea>
+
+            <div class="actions">
+              <button id="saveJobDetailsBtn" class="secondary">Save Job Details</button>
+              <button id="deleteJobBtn" class="secondary">Delete Job</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <label for="candidateNotes">Candidate Notes (required)</label>
+        <textarea id="candidateNotes" rows="7" placeholder="Paste messy notes..."></textarea>
+
+        <label for="resume">Resume (optional)</label>
+        <textarea id="resume" rows="5" placeholder="Paste resume text..."></textarea>
+
+        <div class="grid">
+          <div>
+            <label for="company">Company</label>
+            <input id="company" type="text" placeholder="Amperos" />
+          </div>
+          <div>
+            <label for="role">Role</label>
+            <input id="role" type="text" placeholder="Senior Backend Engineer" />
+          </div>
+          <div>
+            <label for="comp">Comp Range</label>
+            <input id="comp" type="text" placeholder="$220K-$260K" />
+          </div>
+          <div>
+            <label for="workModel">Onsite / Remote</label>
+            <input id="workModel" type="text" placeholder="Hybrid NYC" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="generateBtn">Generate</button>
+          <button id="sampleBtn" class="secondary">Use sample data</button>
+          <button id="resetBtn" class="secondary">Reset</button>
+          <span id="status" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Start here (10 minutes)</h2>
+        <ol>
+          <li>Add your first job in the Jobs section and click it.</li>
+          <li>Paste a job description and notes, then click <strong>Save Job Details</strong>.</li>
+          <li>Click <strong>Use sample data</strong>, then <strong>Generate</strong>.</li>
+          <li>Copy the Candidate Sell and Client Email outputs.</li>
+        </ol>
+        <p class="hint">If that flow works end-to-end, your MVP is working. Then iterate one improvement at a time.</p>
+      </section>
+
+      <section class="outputs">
+        <article class="card">
+          <h2>Candidate Sell</h2>
+          <button class="copy-btn" data-target="sellList">Copy</button>
+          <ul id="sellList"><li class="placeholder">Generate to see output.</li></ul>
+        </article>
+
+        <article class="card">
+          <h2>Client Email</h2>
+          <button class="copy-btn" data-target="clientEmail">Copy</button>
+          <pre id="clientEmail">Generate to see output.</pre>
+        </article>
+
+        <article class="card">
+          <h2>Candidate Follow-up</h2>
+          <button class="copy-btn" data-target="candidateFollowup">Copy</button>
+          <pre id="candidateFollowup">Generate to see output.</pre>
+        </article>
+
+        <article class="card">
+          <h2>Interview Prep</h2>
+          <button class="copy-btn" data-target="prepList">Copy</button>
+          <ul id="prepList"><li class="placeholder">Generate to see output.</li></ul>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="history-header">
+          <h2>Local History</h2>
+          <button id="clearHistory">Clear</button>
+        </div>
+        <p class="hint">Last 10 generations are stored in your browser.</p>
+        <ol id="historyList"></ol>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
